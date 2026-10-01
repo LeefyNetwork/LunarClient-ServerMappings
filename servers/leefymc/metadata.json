@@ -1,0 +1,33 @@
+{
+  "id": "leefymc",
+  "name": "LeefyMC",
+  "description": "Build your generator empire and grow your economy on LeefyMC.",
+  "addresses": [
+    "leefymc.net"
+  ],
+  "primaryAddress": "leefymc.net",
+  "minecraftVersions": [
+    "1.21.11",
+    "26.1",
+    "26.1.1",
+    "26.1.2",
+    "26.2",
+    "26.3"
+  ],
+  "primaryMinecraftVersion": "26.3",
+  "primaryColor": "#6aa84f",
+  "secondaryColor": "#51803c",
+  "primaryLanguage": "en",
+  "languages": [
+    "en"
+  ],
+  "gameTypes": [
+    "Tycoon"
+  ],
+  "primaryGameType": "Tycoon",
+  "website": "https://leefymc.net",
+  "store": "https://store.leefymc.net",
+  "socials": {
+    "discord": "https://discord.com/invite/buanfd8x6z"
+  }
+}
