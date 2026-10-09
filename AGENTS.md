@@ -51,9 +51,11 @@ built-in token. Expire only tips already reachable from master and strictly olde
 than three calendar months, measured from the newest tip committer date or
 associated PR update. Preserve default/protected branches and open PR head/base
 branches. Refresh guards and use expected-tip deletion to preserve racing updates.
-The workspace's hidden Windows task cleans local branches daily after fetch/prune,
-preserving active worktrees and unmerged or unpushed unique commits. It checks
-manifest-authorized project merges every five minutes. No administrator override
+The workspace's GitHub Actions coordinator checks manifest-authorized project
+merges on merged workspace PRs and scheduled retries, using an App limited to
+these five repositories. No Windows task is installed. Local cleanup is on demand
+after fetch/prune, preserving active worktrees and unmerged or unpushed commits.
+No administrator override
 or check bypass is allowed. Keep permanent tooling/tests in `.github/maintenance/`
 and runtime state in the workspace's ignored `.work/automation/`. Record actual
 deletions, merges and changed blockers in workspace `.notes` review PRs. Activation
@@ -69,3 +71,7 @@ references and editing output belong in `.work/assets/<project>/<task>/`.
 Related features, fixes, chores and follow-up changes share the same ongoing
 branch and PR, regardless of commit type. Inspect existing open work first.
 Unrelated work, or work after that PR has merged, starts a new typed branch.
+
+When adding a workspace project, update the maintenance App's selected-repository
+access, coordinator token repository list and maintenance allowlists through the
+coordinated workspace review. Keep the App key only in the workspace Actions secret.
