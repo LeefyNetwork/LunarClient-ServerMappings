@@ -155,14 +155,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", required=True, choices=sorted(REPOS))
     parser.add_argument("--apply", action="store_true")
-    parser.add_argument("--output", default="branch-maintenance-report.json")
+    parser.add_argument("--output", default=".work/automation/branch-maintenance-report.json")
     args = parser.parse_args()
     report = {"schema_version": 1, "repo": args.repo,
               "time": dt.datetime.now(UTC).isoformat(), "apply": args.apply, "results": []}
     def persist(event=None):
         if event:
             report["results"].append(event)
-        Path(args.output).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     persist()
     try:
         report["results"] = remote_cleanup(Gh(), args.repo, apply=args.apply, on_change=persist)

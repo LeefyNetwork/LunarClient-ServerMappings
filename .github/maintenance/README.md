@@ -10,7 +10,7 @@ Scheduled activation requires this workflow on master. Read-only tests run on PR
 
 ```text
 python -m unittest discover -s .github/maintenance -p 'test_*.py' -v
-python .github/maintenance/maintenance.py --repo LeefyNetwork/LunarClient-ServerMappings --output report.json
+python .github/maintenance/maintenance.py --repo LeefyNetwork/LunarClient-ServerMappings --output "../../.work/automation/LunarClient-ServerMappings-dry-run.json"
 ```
 
 Use the workspace's .work folder for local reports and fixtures, rather than source.

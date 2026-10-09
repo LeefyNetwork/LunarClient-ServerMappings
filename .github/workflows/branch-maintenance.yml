@@ -64,6 +64,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: branch-maintenance-report
-          path: branch-maintenance-report.json
+          path: .work/automation/branch-maintenance-report.json
+          include-hidden-files: true
           retention-days: 90
           if-no-files-found: warn
