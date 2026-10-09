@@ -36,6 +36,24 @@ targeting **master**. For coordinated work, push project commits first, then rec
 their exact commits in the ai workspace's submodule pointers and open a linked
 workspace PR to master. Keep pending commits reachable on pushed task branches.
 
-**Never merge, enable automatic merging, force-push, publish releases or deploy
-unless the user explicitly instructs that action.** Leave the PR open for review.
-A general request to finish an update does not authorize a merge.
+Leave the PR open for review. Merging a coordinated ai PR explicitly authorizes
+ordinary merges of only the project PRs and exact heads listed in its checked-in
+`.github/project-prs.json`, after the entire group's checks, reviews and mergeability
+permit merging. Workspace-only ai PRs authorize no project merges. Outside that
+authorization, never merge or enable automatic merging unless explicitly instructed.
+Never force-push, publish releases or deploy unless explicitly instructed.
+
+## Automatic branch expiry
+
+The daily `.github/workflows/branch-maintenance.yml` uses this repository's own
+built-in token. Expire only tips already reachable from master and strictly older
+than three calendar months, measured from the newest tip committer date or
+associated PR update. Preserve default/protected branches and open PR head/base
+branches. Refresh guards and use expected-tip deletion to preserve racing updates.
+The workspace's hidden Windows task cleans local branches daily after fetch/prune,
+preserving active worktrees and unmerged or unpushed unique commits. It checks
+manifest-authorized project merges every five minutes. No administrator override
+or check bypass is allowed. Keep permanent tooling/tests in `.github/maintenance/`
+and runtime state in the workspace's ignored `.work/automation/`. Record actual
+deletions, merges and changed blockers in workspace `.notes` review PRs. Activation
+requires merged workflows and trusted ai master; dry-run cleanup first.
