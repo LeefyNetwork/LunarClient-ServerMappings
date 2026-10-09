@@ -91,7 +91,9 @@ def eligible(repo, branch, tip_date, prs, default, now, merged):
 
 def expected_delete(gh, repo, name, sha):
     """Lease-guarded deletion, never a history rewrite or unguarded API delete."""
-    with tempfile.TemporaryDirectory(prefix="branch-expiry-") as temp:
+    scratch = Path(".work/automation/tmp")
+    scratch.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="branch-expiry-", dir=scratch) as temp:
         run(["git", "init", "--bare", temp])
         # gh supplies the existing keyring login or job's GH_TOKEN to Git.
         helper = "!" + shlex.quote(str(gh.executable).replace("\\", "/")) + " auth git-credential"
