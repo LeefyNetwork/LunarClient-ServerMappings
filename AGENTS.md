@@ -24,7 +24,8 @@ Move unused files to the workspace's dated `.trash/` archive with their original
 relative paths and a manifest. Preserve old instructions before rewriting them.
 Do not permanently delete files as routine cleanup.
 
-Before editing, inspect the working tree and create a new typed task branch,
+Before editing, inspect the working tree and reuse an ongoing related branch.
+For unrelated work or work after a completed merge, create a new typed task branch,
 normally from current `origin/master`: `feat/`, `fix/`, `refactor/`, `perf/`, `docs/`,
 `test/` or `chore/`, followed by a short topic. Preserve existing work; reuse the
 task branch for its follow-up fixes. A submodule checkout may be detached, so
@@ -33,13 +34,13 @@ create its task branch before editing. Do not push every change to `dev`.
 Run relevant checks, review the diff, stage only task files, commit with a typed
 subject, push the task branch to this project's repository and open a pull request
 targeting **master**. For coordinated work, push project commits first, then record
-their exact commits in the ai workspace's submodule pointers and open a linked
+their exact commits in the workspace workspace's submodule pointers and open a linked
 workspace PR to master. Keep pending commits reachable on pushed task branches.
 
-Leave the PR open for review. Merging a coordinated ai PR explicitly authorizes
+Leave the PR open for review. Merging a coordinated workspace PR explicitly authorizes
 ordinary merges of only the project PRs and exact heads listed in its checked-in
 `.github/project-prs.json`, after the entire group's checks, reviews and mergeability
-permit merging. Workspace-only ai PRs authorize no project merges. Outside that
+permit merging. Workspace-only workspace PRs authorize no project merges. Outside that
 authorization, never merge or enable automatic merging unless explicitly instructed.
 Never force-push, publish releases or deploy unless explicitly instructed.
 
@@ -56,4 +57,15 @@ manifest-authorized project merges every five minutes. No administrator override
 or check bypass is allowed. Keep permanent tooling/tests in `.github/maintenance/`
 and runtime state in the workspace's ignored `.work/automation/`. Record actual
 deletions, merges and changed blockers in workspace `.notes` review PRs. Activation
-requires merged workflows and trusted ai master; dry-run cleanup first.
+requires merged workflows and trusted workspace master; dry-run cleanup first.
+
+## Shared branding assets
+
+Find LeefyMC Network logos, banners, backgrounds, images, GIFs and SVGs in
+`<workspace>/assets/`. Read its README index, inspect and reuse existing assets
+before creating alternatives. The root repository owns shared assets; temporary
+references and editing output belong in `.work/assets/<project>/<task>/`.
+
+Related features, fixes, chores and follow-up changes share the same ongoing
+branch and PR, regardless of commit type. Inspect existing open work first.
+Unrelated work, or work after that PR has merged, starts a new typed branch.

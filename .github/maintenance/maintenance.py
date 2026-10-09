@@ -13,7 +13,7 @@ import tempfile
 from urllib.parse import quote
 
 REPOS = {f"LeefyNetwork/{name}" for name in (
-    "ai", "LeefyMC-Core", "LeefyMC-Gens", "website_and_bot",
+    "workspace", "LeefyMC-Core", "LeefyMC-Gens", "website_and_bot",
     "LunarClient-ServerMappings")}
 UTC = dt.timezone.utc
 

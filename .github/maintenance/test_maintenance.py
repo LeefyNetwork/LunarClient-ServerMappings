@@ -5,7 +5,7 @@ from unittest.mock import patch
 import maintenance as m
 
 NOW = dt.datetime(2026, 10, 9, 12, tzinfo=m.UTC)
-REPO = "LeefyNetwork/ai"
+REPO = "LeefyNetwork/workspace"
 OLD = "2026-06-01T00:00:00Z"
 
 
@@ -71,7 +71,7 @@ class PolicyTests(unittest.TestCase):
             self.assertIsNotNone(m.eligible(REPO, branch, OLD, prs, "main", NOW, True))
 
     def test_fork_head_does_not_refresh_local_branch(self):
-        self.assertEqual(m.activity(REPO, "old", OLD, [pr(repo="other/ai", updated=NOW.isoformat())]), m.timestamp(OLD))
+        self.assertEqual(m.activity(REPO, "old", OLD, [pr(repo="other/workspace", updated=NOW.isoformat())]), m.timestamp(OLD))
 
     def test_unmerged_branches_are_preserved(self):
         self.assertEqual(m.eligible(REPO, {"name": "old", "protected": False}, OLD,

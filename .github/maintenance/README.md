@@ -16,5 +16,5 @@ python .github/maintenance/maintenance.py --repo LeefyNetwork/LunarClient-Server
 Use the workspace's .work folder for local reports and fixtures, rather than source.
 GitHub retains sanitized cleanup reports for 90 days. The workspace's hidden
 Windows task ingests deletions into .notes review PRs and handles local cleanup
-and manifest-authorized project merges using the existing gh login. See the ai
+and manifest-authorized project merges using the existing gh login. See the workspace
 repository's .github/maintenance/README.md for setup, policy and recovery.
